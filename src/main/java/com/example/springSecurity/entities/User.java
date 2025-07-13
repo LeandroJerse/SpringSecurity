@@ -49,7 +49,7 @@ public class User {
     public enum values {
         ADMIN(2L), USER(1L);
 
-        long roleId;
+        Long roleId;
         values(long roleId){
             this.roleId = roleId;
         }

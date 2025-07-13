@@ -11,7 +11,8 @@ public class Tweet {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID tweetID;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
     private String tweetText;
 
