@@ -42,5 +42,21 @@ public class User {
         }
         return false;
     }
+    public void addRole(Role role){
+        roles.add(role);
+    }
+
+    public enum values {
+        ADMIN(2L), USER(1L);
+
+        long roleId;
+        values(long roleId){
+            this.roleId = roleId;
+        }
+        public long getRoleId(){
+            return roleId;
+        }
+
+    }
 
 }
