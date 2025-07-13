@@ -19,8 +19,20 @@ import lombok.Setter;
 public class Role implements GrantedAuthority {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     @Column(name = "role_id")
     private Long roleID;
     private String authority;
+
+    public enum values {
+        ADMIN(2L), USER(1L);
+
+        Long roleId;
+        values(long roleId){
+            this.roleId = roleId;
+        }
+        public long getRoleId(){
+            return roleId;
+        }
+
+    }
 }

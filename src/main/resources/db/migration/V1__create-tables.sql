@@ -15,7 +15,7 @@ CREATE TABLE tb_user (
 -- Tabela de associação User <-> Role (muitos-para-muitos)
 CREATE TABLE tb_user_role (
     user_id BINARY(16) NOT NULL,
-    role_id BINARY(16) NOT NULL,
+    role_id BIGINT NOT NULL,
     PRIMARY KEY (user_id, role_id),
     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES tb_user(user_id),
     CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES tb_role(role_id)

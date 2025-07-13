@@ -1,11 +1,13 @@
 package com.example.springSecurity.entities;
 
 
+import com.example.springSecurity.dto.loginDTO.LoginRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -46,17 +48,11 @@ public class User {
         roles.add(role);
     }
 
-    public enum values {
-        ADMIN(2L), USER(1L);
-
-        Long roleId;
-        values(long roleId){
-            this.roleId = roleId;
-        }
-        public long getRoleId(){
-            return roleId;
-        }
+    public boolean isLoginCorrect(LoginRequest loginRequest, PasswordEncoder  passwordEncoder) {
+        return passwordEncoder.matches(loginRequest.password(), this.password);
 
     }
+
+
 
 }
