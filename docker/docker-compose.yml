@@ -1,10 +1,11 @@
 services:
   mysql:
-    image: mysql
+    image: mysql:8.0
+    container_name: mysql
     ports:
-      - "3306:3306"
+      - "3307:3306"  # Porta externa (host):porta interna (container)
     expose:
-      - "3306"
+      - "3306"       # Ainda permite que outros containers acessem internamente via 3306
     environment:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=123
